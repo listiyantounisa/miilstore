@@ -1,6 +1,6 @@
 # miistore
 Aplikasi toko online adalah proses transaksi jual beli dan pemesanan secara online. Ini versinya 1.1
-<br/>
+<br/><br/><br/>
 Dalam perancangan pembuatan aplikasi toko online berbasis web adalah :<br/>
 Bahasa front end (HTML, CSS, Javascript, JQuery)<br/>
 Bahasa framework CSS (Bootstrap)<br/>
