@@ -1,6 +1,6 @@
 # miistore
 Aplikasi toko online adalah proses transaksi jual beli dan pemesanan secara online. Ini versinya 1.1
-<br/><br/><br/>
+<br/><br/>
 Ada beberapa fitur front end terdapat dalam aplikasi toko online : <br/>
 Pencarian produk berdasarkan kata kunci<br/>
 Menampilkan semua produk<br/>
