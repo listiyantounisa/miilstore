@@ -380,7 +380,7 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 	
 	<footer class="footer-bottom">
 		<div class="footer-right">
-			&copy; 2017 MiiStore. All Rights Reserved | Design by Victory Webstore
+			&copy; 2017 MiiStore. All Rights Reserved | Design by Eirene KW
 		</div>
 		<div class="clearfix"></div>
 	</footer>

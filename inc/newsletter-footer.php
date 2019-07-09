@@ -91,7 +91,7 @@
 			<li><img src="assets/img/logo-mandiri.png" class="img-responsive"/></li>
 			<li><img src="assets/img/logo-bri.png" class="img-responsive"/></li>
 		</ul>
-		<p class="footer-bottom-right">&copy; 2017 MiiStore. All Rights Reserved | Design by <a href="/miistore/">Victory Webstore</a></p>
+		<p class="footer-bottom-right">&copy; 2017 MiiStore. All Rights Reserved | Design by <a href="/miistore/">Eirene KW</a></p>
 		<div class="clearfix"></div>
 	</div>
 </div>
