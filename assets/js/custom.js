@@ -76,7 +76,10 @@ $(document).ready(function() {
 					$(".top-products").html(data).show();
 				} 
 			});
+		} else {
+			window.location.href = "index.php";
 		}
+		return false;
 	});
 	
 });

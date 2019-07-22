@@ -102,7 +102,7 @@ if(isset($_SESSION['username']) && $_SESSION['username'] != ''){
 					</form>
 				</div>
 				<p class="text-center new-account">Pernah jadi anggota? <a href="index.php">Masuk</a></p>
-				<p class="text-center new-account">Sudahkah Anda mendaftar belum? <a href="?signup">Buat akun baru</a></p>
+				<p class="text-center new-account">Sudahkah Anda mendaftar belum? <a href="index.php?signup">Buat akun baru</a></p>
 			</div>
 		</div>
 	</div>

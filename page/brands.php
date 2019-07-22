@@ -16,7 +16,7 @@
 					$tmp = $first_letter;
 					echo '<h4>'.$tmp.'</h4>';
 				}
-				echo '<li  style="list-style:none;"><a href="index.php?p=productbrand&b='.$row['brand'].'">'.$row['brand'].'</a></li>';
+				echo '<li  style="list-style:none;"><a href="../index.php?p=productbrand&b='.$row['brand'].'">'.$row['brand'].'</a></li>';
 				echo '</ul>';
 				if($i % 8 == 0) echo '</div><div class="col-md-4 col-xs-6">';
 				$i++;

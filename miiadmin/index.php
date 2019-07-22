@@ -3,7 +3,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 session_start();
 
-if((isset($_COOKIE['user']) && $_COOKIE['user'] != '') || (isset($_SESSION['user']) && $_SESSION['user'] != '')){
+if((isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != '') || (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '')){
 	header('location: miadmin.php');
 	exit();
 }
@@ -16,7 +16,7 @@ if((isset($_COOKIE['user']) && $_COOKIE['user'] != '') || (isset($_SESSION['user
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Login</title>
 	<meta name="keywords" content="men, women, clothing, home" />
-	<meta name="author" content="Victory Webstore"/>
+	<meta name="author" content="Eirene KW"/>
 	
 	<!-- mobile specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -78,9 +78,11 @@ if((isset($_COOKIE['user']) && $_COOKIE['user'] != '') || (isset($_SESSION['user
 						
 						if(!$error){
 							if($user && $password){
+								
 								$login = mysqli_query($conn,"SELECT * FROM users WHERE user='".$user."'");
 								if(mysqli_num_rows($login) > 0){
 									while($row=mysqli_fetch_assoc($login)){
+										$id = $row['user_id'];
 										$name = $row['fullname'];
 										$db_pass = $row['pass'];
 										if($password == $db_pass){
@@ -91,14 +93,15 @@ if((isset($_COOKIE['user']) && $_COOKIE['user'] != '') || (isset($_SESSION['user
 										
 										if($loginok == TRUE){
 											if($remember == "on"){
+												setcookie("user_id", $id, time() + (86400*30));
 												setcookie("fullname", $name, time() + (86400*30));
 												setcookie("user", $user, time() + (86400*30));
 											}elseif($remember == ""){
+												$_SESSION['user_id'] = $id;
 												$_SESSION['fullname'] = $name;
 												$_SESSION['user'] = $user;
 											}
-											header('location: miadmin.php');
-											exit();
+											echo "<meta http-equiv='refresh' content='0; url=miadmin.php'>";
 										}else{
 											$error = true;
 											echo "<div class='alert alert-danger'>Nama pengguna dan kata sandi Anda salah, silakan coba lagi!</div>";
@@ -210,7 +213,7 @@ if((isset($_COOKIE['user']) && $_COOKIE['user'] != '') || (isset($_SESSION['user
 							echo "<div class='alert alert-danger'>Nama pengguna sudah masih ada, mohon di buat yang lain!</div>";
 						}else{
 							mysqli_query($conn,"INSERT INTO users VALUES (null,'$name','$user','$pass')");
-							header('location: index.php');
+							echo "<meta http-equiv='refresh' content='0; url=index.php'>";
 						}
 					}
 				}
@@ -243,7 +246,7 @@ if((isset($_COOKIE['user']) && $_COOKIE['user'] != '') || (isset($_SESSION['user
 						<button type="submit" class="btn btn-lg btn-primary btn-block" name="signup">Daftar</button>
 					</form>
 				</div>
-				<p class="text-center new-account">Pernah jadi anggota? <a href="index.php">Masuk</a></p>
+				<p class="text-center new-account">Pernah jadi anggota? <a href="/miiadmin/index.php">Masuk</a></p>
 			</div>
 		</div>
 	</div>
@@ -284,7 +287,7 @@ if((isset($_COOKIE['user']) && $_COOKIE['user'] != '') || (isset($_SESSION['user
 								if($result > 0){
 									session_start();
 									$_SESSION['username'] = $user;
-									header("location: reset.php");
+									echo "<meta http-equiv='refresh' content='0; url=reset.php'>";
 								}else{
 									$error = true;
 									echo "<div class='alert alert-danger'>Nama pengguna Anda salah, silakan coba lagi!</div>";

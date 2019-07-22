@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-setcookie('user','', time() - 3600);
+setcookie('user_id','', time() - 3600);
 session_destroy();
 
-header('location: /miistore/miiadmin/');
-exit();
+echo "<script>document.location = '/index.php'; </script>";
 ?>
 

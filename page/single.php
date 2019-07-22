@@ -10,14 +10,14 @@
 				$data = mysqli_fetch_array($query);
 				
 			?>
-			<div class="back-right"><a href="javascript:history.back();"><i class="fa fa-arrow-left"></i> BACK</a></div>
+			<div class="back-right"><a href="../index.php"><i class="fa fa-arrow-left"></i> BACK</a></div>
 			<div class="col-md-4 single-left">
 				<div class="flexslider">
 					<ul class="slides">
 					<?php
 						$temp = explode(',', $data['image']);
 						for($i = 0; $i < count($temp); $i++){
-							echo '<li data-thumb="miiadmin/img/'.trim($temp[$i]).'"><div class="thumb-image"><img src="miiadmin/img/'.trim($temp[$i]).'" 
+							echo '<li data-thumb="../miiadmin/img/'.trim($temp[$i]).'"><div class="thumb-image"><img src="../miiadmin/img/'.trim($temp[$i]).'" 
 							class="img-responsive" /></div></li>';
 						}
 					?>
@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="col-md-8 single-right">
-			<form action="index.php?p=single&id=<?php echo $_GET['id']; ?>" method="POST">
+			<form action="../index.php?p=single&id=<?php echo $_GET['id']; ?>" method="POST">
 				<label><h3><?php echo $data['item_name']; ?></h3></label>
 				<p class="availability">Status Stok: <span class="color"><?php echo $data['available'];?></span></p>
 				<div class="price_single">
@@ -92,6 +92,7 @@
 				<input type="hidden" name="hidden_disc" value="<?php echo $data['discount']; ?>"/>
 				<input type="submit" name="cart" value="Beli sekarang" class="btn-checkout-2">
 				</form>
+
 				<?php
 				if(isset($_POST['cart'])){
 					$error = false;
@@ -112,7 +113,7 @@
 												<h3>Isikan dulu</h3>
 											</div>
 											<div class="modal-footer">
-												<a href="index.php?p=single&id='.$_GET['id'].'" class="btn btn-info">OK</a>
+												<a href="../index.php?p=single&id='.$_GET['id'].'" class="btn btn-info">OK</a>
 											</div>
 										</div>
 									</div>
@@ -154,7 +155,7 @@
 								);
 								$_SESSION['cart'][0] = $item_array;
 						}
-						header('location:index.php?p=cart');
+						echo "<script>document.location = '../index.php?p=cart'; </script>";
 					}
 				}
 				?>

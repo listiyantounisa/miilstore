@@ -1,7 +1,7 @@
 <!--All Products-->
 <div class="top-products">
 	<div class="container">
-		<div class="text-right" style="margin-top: 10px;"><a href="index.php?p=brands"><i class="fa fa-arrow-left"></i> BACK</a></div>
+		<div class="text-right" style="margin-top: 10px;"><a href="../index.php?p=brands"><i class="fa fa-arrow-left"></i> BACK</a></div>
 		<div class="row product" style="margin-top: 10px;">
 			<?php
 			$brand = $_GET['b'];
@@ -22,9 +22,9 @@
 			<div class="col-md-3 col-xs-6 product-left">
 				<div class="p-one">
 					<a href="#">
-						<img src="miiadmin/img/<?php echo $row['bgimg']; ?>"/>
+						<img src="../miiadmin/img/<?php echo $row['bgimg']; ?>"/>
 						<div class="mask">
-							<a href="index.php?p=single&id=<?php echo $row['item_id']; ?>"><span>Lihat Detail</span></a>
+							<a href="../index.php?p=single&id=<?php echo $row['item_id']; ?>"><span>Lihat Detail</span></a>
 						</div>
 					</a>
 					<h4><?php echo $row['item_name']; ?></h4>
@@ -69,9 +69,9 @@
 						$number = '';
 						for($i=1; $i<=$total_page; $i++){ 
 							if($i == $page){
-								$number .= "<a href='index.php?p=productbrand&b=".$row['brand']."&page=$i'>$i</a>";
+								$number .= "<a href='../index.php?p=productbrand&b=".$row['brand']."&page=$i'>$i</a>";
 							}else{
-								$number .= "<a href='index.php?p=productbrand&b=".$row['brand']."&page=$i'>$i</a>";
+								$number .= "<a href='../index.php?p=productbrand&b=".$row['brand']."&page=$i'>$i</a>";
 							}
 						}
 						if($page < $total_page){

@@ -4,10 +4,10 @@ require_once("connect.php");
 session_start();
 ob_start();
 
-if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
-	$name = $_COOKIE['fullname'];
-}else if(isset($_SESSION['user']) && $_SESSION['user'] != ''){
-	$name = $_SESSION['fullname'];
+if(isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != ''){
+	$id = $_COOKIE['user_id'];
+}else if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != ''){
+	$id = $_SESSION['user_id'];
 }else{
 	header('location: index.php');
 	exit();
@@ -42,6 +42,11 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 	
 </head>
 <body>
+	<?php
+	$ids = $_GET['id'];
+	$query = mysqli_query($conn, "SELECT * FROM users WHERE user_id = '".$ids."'");
+	$data = mysqli_fetch_array($query);
+	?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -54,7 +59,7 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown user-menu">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-users"></i> <?php echo $name; ?> <span class="caret"></span>
+						<i class="fa fa-users"></i> <?php echo $data['fullname']; ?> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
@@ -111,8 +116,6 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 				<div class="row">
 					<div class="col-lg-12">
 						<?php
-						$query = mysqli_query($conn, "SELECT * FROM users WHERE fullname = '".$name."'");
-						$data = mysqli_fetch_array($query);
 							
 						$error = false;
 						$nama = $user = "";
@@ -145,19 +148,19 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 							}
 										
 							if(!$error){
-								mysqli_query($conn,"UPDATE users SET fullname='$nama',user='$user' WHERE fullname='".$name."'");
+								mysqli_query($conn,"UPDATE users SET fullname='$nama',user='$user' WHERE user_id='".$id."'");
 								header('location: miadmin.php');
 							}
 						}
 						?>
-						<form action="profil.php" class="form-horizontal" method="POST">
+						<form action="profil.php?id=<?php echo $_GET['id'];?>" class="form-horizontal" method="POST">
 							<legend>Profil</legend>
 							<!-- Full Name -->
 							<div class="form-group">
 								<label class="col-md-2 control-label">Nama Lengkap Anda <i>(required)</i></label>
 								<div class="col-md-10">
 									<input type="text" name="fullname" value="<?php echo isset($_POST['fullname']) ? $_POST['fullname'] : $data['fullname']; ?>" class="form-control">
-									<input type="hidden" name="id" value="<?php echo $data['user_id']; ?>">
+									<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 									<span class="text-danger"><?php echo $namaErr ; ?></span>
 								</div>
 							</div>
@@ -200,15 +203,14 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 						</form>
 						<?php
 						if(isset($_POST['deactivated'])){
-							$query = "DELETE FROM users WHERE fullname = '$name'";
+							$query = "DELETE FROM users WHERE user_id = '".$id."'";
 							if(!$res = mysqli_query($conn,$query)){
 								exit(mysqli_error());
 							}
-							setcookie('user','', time() - 3600);
+							setcookie('user_id','', time() - 3600);
 							session_destroy();
 
-							header('location: index.php');
-							exit();
+							echo "<meta http-equiv='refresh' content='0; url=index.php'>";
 						}
 						?>
 					</div>
@@ -223,7 +225,7 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 	
 	<footer class="footer-bottom">
 		<div class="footer-right">
-			&copy; 2017 MiiStore. All Rights Reserved | Design by Eirene KW
+			&copy; 2019 MiiStore. All Rights Reserved | Design by Eirene KW
 		</div>
 		<div class="clearfix"></div>
 	</footer>

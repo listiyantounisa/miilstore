@@ -148,12 +148,12 @@
 							
 						mysqli_query($conn,"INSERT INTO members VALUES ('$id','$name','$gender','$address','$city','$state','$zip','$phone','$email','$pass','$regdate')");
 							
-						header('Location: index.php?p=success');
+						echo "<meta http-equiv='refresh' content='0; url=/index.php?p=success'>";
 					}
 				}
 			}
 			?>
-			<form action="index.php?p=register" method="POST">
+			<form action="../index.php?p=register" method="POST">
 				<div class="col-sm-12">
 					<div class="row">
 						<div class="col-sm-6 form-group">
@@ -246,7 +246,7 @@
 					<center>
 						<div class="form-group">
 							<button type="submit" class="btn btn-warning" name="signup">Daftar</button>
-							<a href="/miistore/"><button type="button" class="btn btn-link">Batal</button></a>
+							<a href="../index.php"><button type="button" class="btn btn-link">Batal</button></a>
 						</div>
 					</center>
 						
@@ -254,5 +254,5 @@
 			</form>
 		</div>
 	</div>
-	<div class="well"><p class="text-center new-account">Pernah jadi anggota? <a href="index.php?p=login">Masuk</a></p></div>
+	<div class="well"><p class="text-center new-account">Pernah jadi anggota? <a href="../index.php?p=login">Masuk</a></p></div>
 </div>

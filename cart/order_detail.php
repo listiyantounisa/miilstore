@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6">
-				<img class="logo-img" src="logo/miistore1.png" />
+				<img class="logo-img" src="../logo/miistore1.png" />
 			</div>
 			<div class="col-xs-6 text-right"  style="margin-top: 20px;">
 				<address>
@@ -89,7 +89,7 @@
 					<td align="center"><?php echo $no; ?></td>
 					<td>
 						<div class="table-column-left">
-							<img src="miiadmin/img/<?php echo $row['bgimg']; ?>" class="img-small">
+							<img src="../miiadmin/img/<?php echo $row['bgimg']; ?>" class="img-small">
 						</div>
 						<div class="table-column-right">
 							Kode : <?php echo $row['item_code']; ?><br/>
@@ -117,7 +117,7 @@
 </div>
 <div class="container" style="margin-bottom:20px;">
 	<div class="shopping-right-basket">
-		<form action="index.php?p=order" method="POST">
+		<form action="../index.php?p=order" method="POST">
 		<input type="button" value="Print" class="btn-continue" onclick="PrintDiv('divToPrint')">
 		<input type="submit" name="finish" value="Selesai" class="btn-continue">
 		</form>
@@ -125,7 +125,7 @@
 	<?php
 	if(isset($_POST['finish'])){
 		unset($_SESSION['order_id']);
-		header('location: /miistore/');
+		echo "<script>document.location = '../index.php'; </script>";
 	}
 	?>
 </div>

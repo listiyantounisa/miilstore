@@ -15,18 +15,18 @@ session_start();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>MiiStore</title>
 	<meta name="keywords" content="men, women, clothing, home" />
-	<meta name="author" content="Victory Webstore"/>
+	<meta name="author" content="Eirene KW"/>
 	
 	<!-- mobile specific -->
 	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1" />
 	
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/png" href="logo/miistore-favicon.png" />
+	<link rel="shortcut icon" type="image/png" href="../logo/miistore-favicon.png" />
 	
 	<!-- Offline -->
-	<link rel="stylesheet" type="text/css" href="assets/css/miistore.css" media="screen, print" />
-	<link rel="stylesheet" type="text/css" href="assets/css/coreSlider.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/flexslider.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/miistore.css" media="screen, print" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/coreSlider.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/flexslider.css" media="screen" />
 	
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -35,8 +35,8 @@ session_start();
     <![endif]-->
 	</head>
 <body>
-	<?php
-	ob_start();
+
+	<?php ob_start();
 	
 	include "connect.php";
 	date_default_timezone_set('Asia/Jakarta');
@@ -71,11 +71,11 @@ session_start();
 	?>
 	
 	<!-- JS Offline -->
-	<script src="assets/js/jquery-1.11.1.min.js"></script>
-	<script src="assets/js/coreSlider.js"></script>
-	<script defer src="assets/js/jquery.flexslider.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<script src="../assets/js/jquery-1.11.1.min.js"></script>
+	<script src="../assets/js/coreSlider.js"></script>
+	<script defer src="../assets/js/jquery.flexslider.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../assets/js/custom.js"></script>
 	
 </body>
 </html>

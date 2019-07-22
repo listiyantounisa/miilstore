@@ -154,7 +154,7 @@
 												<h3>Isi total tersebut tidak boleh di kurangi. Mohon silakan di bayar harus sama dengan total sementara.</h3>
 											</div>
 											<div class="modal-footer">
-												<a href="index.php?p=checkout" class="btn btn-info">Ya</a>
+												<a href="../index.php?p=checkout" class="btn btn-info">Ya</a>
 											</div>
 										</div>
 									</div>
@@ -162,11 +162,12 @@
 				}
 				
 				if(!$error){
+					date_default_timezone_set('Asia/Jakarta');
 					$id = autoNumber('order_id','orders');
 					$regdate = date('Y-m-d');
 					$regtime = date('G:i:s');
 					
-					$result = mysqli_query($conn,"INSERT INTO orders VALUES('".$id."','".$member."','".$owner."','".$cardbank."','".$cardnumber."','PAID','".$pay."','".$regdate."','".$regtime."','PENDING','','')");
+					$result = mysqli_query($conn,"INSERT INTO orders VALUES('".$id."','".$member."','".$owner."','".$cardbank."','".$cardnumber."','PAID','".$pay."','".$regdate."','".$regtime."','PENDING','".$regdate."','".$regtime."')");
 					if(!$result){
 						die('Invalid query:'.mysqli_error($conn));
 					}
@@ -177,7 +178,7 @@
 						$order_detail = "INSERT INTO order_detail VALUES (NULL,'".$order_id."','".$values['item_img']."','".$values['product_id']."','".$values['item_name']."','".$values['color']."','".$values['size']."','".$values['qty']."','".$values['disc']."','".$values['price']."')";
 						if(mysqli_query($conn, $order_detail)){
 							unset($_SESSION['cart']);
-							header('Location: index.php?p=order');
+							echo "<script>document.location = '../index.php?p=order'; </script>";
 						}
 						mysqli_query($conn,"UPDATE items SET stock = stock -'".$values['qty']."' WHERE item_id = '".$values['product_id']."'");
 						$qry = mysqli_query($conn, "SELECT * FROM items WHERE stock='0' AND item_id = '".$values['product_id']."'");
@@ -192,7 +193,7 @@
 		}
 		?>
 		<div class="col-md-8 center-block">
-		<form action="index.php?p=checkout" class="form-horizontal" method="POST">
+		<form action="../index.php?p=checkout" class="form-horizontal" method="POST">
 			<legend>Data Diri</legend>
 			<div class="form-group">
 				<label class="col-md-2 control-label">Nama Lengkap</label>
@@ -302,7 +303,7 @@
 			<center>
 				<div class="form-group">
 					<button type="submit" class="btn btn-warning" name="checkout">Bayar Sekarang</button>
-					<a href="/miistore/"><button type="button" class="btn btn-link">Batal</button></a>
+					<a href="../index.php"><button type="button" class="btn btn-link">Batal</button></a>
 				</div>
 			</center>
 		</form>

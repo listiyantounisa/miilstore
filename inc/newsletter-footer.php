@@ -23,8 +23,8 @@
 		<div class="col-lg-3 footer-grid">
 			<h3>Menu</h3>
 			<ul class="footer-grid-list">
-				<li><a href="/miistore/">Beranda</a></li>
-				<li><a href="index.php?p=brands">Brand</a></li>
+				<li><a href="../index.php">Beranda</a></li>
+				<li><a href="../index.php?p=brands">Brand</a></li>
 				<li><a href="">Pesan Kami</a></li>
 				<li><a href="">Bantuan</a></li>
 				<li><a href="">FAQ</a></li>
@@ -33,8 +33,8 @@
 		<div class="col-lg-3 footer-grid">
 			<h3>Akun</h3>
 			<ul class="footer-grid-list">
-				<li><a href="index.php?p=login">Masuk</a></li>
-				<li><a href="index.php?p=register">Daftar</a></li>
+				<li><a href="../index.php?p=login">Masuk</a></li>
+				<li><a href="../index.php?p=register">Daftar</a></li>
 			</ul>
 			<h3>Hubungi Kami</h3>
 			<div class="social">
@@ -84,14 +84,14 @@
 <div class="footer-bottom">
 	<div class="container-fluid">
 		<ul class="footer-bottom-left">
-			<li><img src="assets/img/f2.png" class="img-responsive"/></li>
-			<li><img src="assets/img/f3.png" class="img-responsive"/></li>
-			<li><img src="assets/img/logo-bca.png" class="img-responsive"/></li>
-			<li><img src="assets/img/logo-bni46.png" class="img-responsive"/></li>
-			<li><img src="assets/img/logo-mandiri.png" class="img-responsive"/></li>
-			<li><img src="assets/img/logo-bri.png" class="img-responsive"/></li>
+			<li><img src="../assets/img/f2.png" class="img-responsive"/></li>
+			<li><img src="../assets/img/f3.png" class="img-responsive"/></li>
+			<li><img src="../assets/img/logo-bca.png" class="img-responsive"/></li>
+			<li><img src="../assets/img/logo-bni46.png" class="img-responsive"/></li>
+			<li><img src="../assets/img/logo-mandiri.png" class="img-responsive"/></li>
+			<li><img src="../assets/img/logo-bri.png" class="img-responsive"/></li>
 		</ul>
-		<p class="footer-bottom-right">&copy; 2017 MiiStore. All Rights Reserved | Design by <a href="/miistore/">Eirene KW</a></p>
+		<p class="footer-bottom-right">&copy; 2019 MiiStore. All Rights Reserved | Design by <a href="/miistore/">Eirene KW</a></p>
 		<div class="clearfix"></div>
 	</div>
 </div>

@@ -25,7 +25,7 @@
 			<tr>
 				<td align="center">
 					<div class="table-column-left">
-						<img src="miiadmin/img/<?php echo $values['item_img']; ?>" class="img-small">
+						<img src="../miiadmin/img/<?php echo $values['item_img']; ?>" class="img-small">
 					</div>
 					<div class="table-column-right">
 						Kode : <?php echo $values['product_id']; ?><br/>
@@ -38,7 +38,7 @@
 				<td align="center"><?php echo $values['disc']; ?>%</td>
 				<td align="center"><?php echo 'Rp '.number_format($values['price'],0,".","."); ?></td>
 				<td align="center"><?php echo 'Rp '.number_format($subtotal,0,".","."); ?></td>
-				<td align="center"><a href="index.php?p=cart&item=<?php echo $values['product_id']; ?>&clr=<?php echo $values['color']; ?>&sz=<?php echo $values['size']; ?>"><i class="fa fa-times-circle-o"></i></a></td>
+				<td align="center"><a href="../index.php?p=cart&item=<?php echo $values['product_id']; ?>&clr=<?php echo $values['color']; ?>&sz=<?php echo $values['size']; ?>"><i class="fa fa-times-circle-o"></i></a></td>
 			</tr>
 			<?php
 				}
@@ -52,7 +52,7 @@
 					unset($_SESSION['cart'][$keys]);
 				}
 			}
-			header('location: index.php?p=cart');
+			echo "<script>document.location = '../index.php?p=cart'; </script>";
 		}
 		?>
 		<div class="shopping-left">
@@ -63,20 +63,20 @@
 			</div>
 		
 			<div class="shopping-right-basket">
-				<a class="btn-continue" href="/miistore/">Lanjutkan</a>
-				<a class="btn-continue" href="index.php?p=cart&act=clear">Hapus Semua</a>
+				<a class="btn-continue" href="../index.php">Lanjutkan</a>
+				<a class="btn-continue" href="../index.php?p=cart&act=clear">Hapus Semua</a>
 				<?php
 				if(isset($_SESSION['email'])){
 					echo '
-					<a class="btn-continue" href="index.php?p=checkout">Berikutnya</a>
+					<a class="btn-continue" href="../index.php?p=checkout">Berikutnya</a>
 					';
 				}elseif(isset($_COOKIE['email'])){
 					echo '
-					<a class="btn-continue" href="index.php?p=checkout">Berikutnya</a>
+					<a class="btn-continue" href="../index.php?p=checkout">Berikutnya</a>
 					';
 				}else{
 					echo '
-					<a class="btn-continue" href="index.php?p=login">Berikutnya</a>
+					<a class="btn-continue" href="../index.php?p=login">Berikutnya</a>
 					';
 				}
 				?>
@@ -86,7 +86,7 @@
 			if(isset($_GET['act'])){
 				if($_GET['act'] == "clear"){
 					unset($_SESSION['cart']);
-					header('location: index.php?p=cart');
+					echo "<script>document.location = '../index.php?p=cart'; </script>";
 				}
 			}
 			?>

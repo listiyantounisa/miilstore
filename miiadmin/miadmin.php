@@ -3,10 +3,10 @@ require_once("connect.php");
 
 session_start();
 
-if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
-	$name = $_COOKIE['fullname'];
-}else if(isset($_SESSION['user']) && $_SESSION['user'] != ''){
-	$name = $_SESSION['fullname'];
+if(isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != ''){
+	$id = $_COOKIE['user_id'];
+}else if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != ''){
+	$id = $_SESSION['user_id'];
 }else{
 	header('location: index.php');
 	exit();
@@ -41,6 +41,10 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 	
 </head>
 <body>
+	<?php
+	$query = mysqli_query($conn, "SELECT * FROM users WHERE user_id = '".$id."'");
+	$data = mysqli_fetch_array($query);
+	?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -53,10 +57,10 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown user-menu">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-users"></i> <?php echo $name; ?> <span class="caret"></span>
+						<i class="fa fa-users"></i> <?php echo $data['fullname']; ?> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="profil.php"><i class="fa fa-user"></i> Profil</a></li>
+						<li><a href="profil.php?id=<?php echo $id;?>"><i class="fa fa-user"></i> Profil</a></li>
 						<li><a href="logout.php"><i class="fa fa-sign-out"></i> Keluar</a></li>
 					</ul>
 				</li>
@@ -201,7 +205,7 @@ if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
 	
 	<footer class="footer-bottom">
 		<div class="footer-right">
-			&copy; 2017 MiiStore. All Rights Reserved | Design by Eirene KW
+			&copy; 2019 MiiStore. All Rights Reserved | Design by Eirene KW
 		</div>
 		<div class="clearfix"></div>
 	</footer>

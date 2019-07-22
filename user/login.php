@@ -46,8 +46,7 @@
 								$_SESSION['fullname'] = $name;
 								$_SESSION['email'] = $email;
 							}
-							header('location: /miistore/');
-							exit();
+							echo "<meta http-equiv='refresh' content='0; url=/index.php'>";
 						}else{
 							$error = true;
 							echo "<div class='alert alert-danger'>Email dan kata sandi Anda salah, Silakan coba lagi!</div>";
@@ -57,7 +56,7 @@
 			}		
 		}
 		?>
-			<form action="index.php?p=login" method="POST">
+			<form action="../index.php?p=login" method="POST">
 				<div class="col-sm-12">
 					<div class="row">
 						<div class="col-sm-6 form-group">
@@ -88,7 +87,7 @@
 					<center>
 						<div class="form-group">
 							<button type="submit" class="btn btn-warning" name="signin">Masuk</button>
-							<a href="/miistore/"><button type="button" class="btn btn-link">Batal</button></a>
+							<a href="../index.php"><button type="button" class="btn btn-link">Batal</button></a>
 						</div>
 					</center>
 							
@@ -96,5 +95,5 @@
 			</form>
 		</div>
 	</div>
-	<div class="well"><p class="text-center new-account">Sudahkah Anda mendaftar belum? <a href="index.php?p=register">Buat akun baru</a></p></div>
+	<div class="well"><p class="text-center new-account">Sudahkah Anda mendaftar belum? <a href="../index.php?p=register">Buat akun baru</a></p></div>
 </div>

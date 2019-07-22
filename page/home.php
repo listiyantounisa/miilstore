@@ -4,16 +4,16 @@
 		<div class="core-slider_viewport">
 			<div class="core-slider_list">
 				<div class="core-slider_item">
-					<img src="assets/img/b1.jpg" alt="">
+					<img src="../assets/img/b1.jpg" alt="">
 				</div>
 				<div class="core-slider_item">
-					<img src="assets/img/b2.jpg" alt="">
+					<img src="../assets/img/b2.jpg" alt="">
 				</div>
 				<div class="core-slider_item">
-					<img src="assets/img/b3.jpg" alt="">
+					<img src="../assets/img/b3.jpg" alt="">
 				</div>
 				<div class="core-slider_item">
-					<img src="assets/img/b4.jpg" alt="">
+					<img src="../assets/img/b4.jpg" alt="">
 				</div>
 			</div>
 		</div>
@@ -87,9 +87,9 @@
 				<div class="col-md-3 col-xs-6 product-left">
 					<div class="p-one">
 						<a href="#">
-							<img src="miiadmin/img/<?php echo $row['bgimg']; ?>"/>
+							<img src="../miiadmin/img/<?php echo $row['bgimg']; ?>"/>
 							<div class="mask">
-								<a href="index.php?p=single&id=<?php echo $row['item_id']; ?>"><span>Lihat Detail</span></a>
+								<a href="../index.php?p=single&id=<?php echo $row['item_id']; ?>"><span>Lihat Detail</span></a>
 							</div>
 						</a>
 						<h4><?php echo $row['item_name']; ?></h4>
@@ -127,21 +127,21 @@
 						<ul class="pagination">
 							<?php
 							if($page > 1){
-								$prev = "<a href='index.php?p=home&page=1'><span aria-hidden='true'>First</span></a>";
+								$prev = "<a href='../index.php?p=home&page=1'><span aria-hidden='true'>First</span></a>";
 							}else{
 								$prev = "<a href=''><span aria-hidden='true'>First</span></a>";
 							}
 							$number = '';
 							for($i=1; $i<=$total_page; $i++){ 
 								if($i == $page){
-									$number .= "<a href='index.php?p=home&page=$i'>$i</a>";
+									$number .= "<a href='../index.php?p=home&page=$i'>$i</a>";
 								}else{
-									$number .= "<a href='index.php?p=home&page=$i'>$i</a>";
+									$number .= "<a href='../index.php?p=home&page=$i'>$i</a>";
 								}
 							}
 							if($page < $total_page){
 								$link = $page + 1;
-								$next = "<a href='index.php?p=home&page=$total_page'><span aria-hidden='true'>Last</span></a>";
+								$next = "<a href='../index.php?p=home&page=$total_page'><span aria-hidden='true'>Last</span></a>";
 							}else{
 								$next = "<a href=''><span aria-hidden='true'>Last</span></a>";
 							}
@@ -176,7 +176,7 @@
 						}else{
 							echo '<div class="item">';
 						}
-						echo '<div class="col-md-2 col-sm-6 col-xs-12"><span><img src="miiadmin/logo/'.$row['logo'].'" class="img-responsive"></span></div>';
+						echo '<div class="col-md-2 col-sm-6 col-xs-12"><span><img src="../miiadmin/logo/'.$row['logo'].'" class="img-responsive"></span></div>';
 					}
 					$i = 0;
 					echo '</div>';

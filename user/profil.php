@@ -103,12 +103,12 @@
 				if(!$error){
 					$name = $fname." ".$lname;		
 					mysqli_query($conn,"UPDATE members SET fullname = '".$name."', gender = '".$gender."', address = '".$address."', city = '".$city."', state = '".$state."', zip_code = '".$zip."', phone = '".$phone."' WHERE member_id = '".$member."'");		
-					header('Location: /miistore/');
+					echo "<script>document.location = '../index.php'; </script>";
 				}
 			}
 			list($fname, $lname) = explode(" ", $data['fullname']);
 			?>
-			<form action="index.php?p=profil" method="POST">
+			<form action="../index.php?p=profil" method="POST">
 				<div class="col-sm-12">
 					<div class="row">
 						<div class="col-sm-6 form-group">
@@ -185,7 +185,7 @@
 					<center>
 						<div class="form-group">
 							<button type="submit" class="btn btn-warning" name="saveprofil">Ubah Profil</button>
-							<a href="/miistore/"><button type="button" class="btn btn-link">Batal</button></a>
+							<a href="../index.php"><button type="button" class="btn btn-link">Batal</button></a>
 						</div>
 					</center>
 						
@@ -193,6 +193,6 @@
 			</form>
 		</div>
 	</div>
-	<div class="well"><p class="text-center new-account">Apakah Anda yakin menghapus akun ini? <a href="index.php?p=delete">Hapus Akun Anda</a></p></div>
+	<div class="well"><p class="text-center new-account">Apakah Anda yakin menghapus akun ini? <a href="../index.php?p=delete">Hapus Akun Anda</a></p></div>
 </div>
 <?php ob_end_flush(); ?>

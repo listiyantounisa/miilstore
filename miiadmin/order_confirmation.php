@@ -5,10 +5,10 @@ require_once("connect.php");
 
 session_start();
 
-if(isset($_COOKIE['user']) && $_COOKIE['user'] != ''){
-	$name = $_COOKIE['fullname'];
-}else if(isset($_SESSION['user']) && $_SESSION['user'] != ''){
-	$name = $_SESSION['fullname'];
+if(isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != ''){
+	$id = $_COOKIE['user_id'];
+}else if(isset($_SESSION['user_id']) && $_SESSION['user_id'] != ''){
+	$id = $_SESSION['user_id'];
 }else{
 	header('location: index.php');
 	exit();
@@ -48,6 +48,10 @@ ob_start();
 	</style>
 </head>
 <body>
+	<?php
+	$queryname = mysqli_query($conn, "SELECT * FROM users WHERE user_id = '".$id."'");
+	$name = mysqli_fetch_array($queryname);
+	?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -60,7 +64,7 @@ ob_start();
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown user-menu">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-users"></i> <?php echo $name; ?> <span class="caret"></span>
+						<i class="fa fa-users"></i> <?php echo $name['fullname']; ?> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
@@ -451,7 +455,7 @@ ob_start();
 	
 	<footer class="footer-bottom">
 		<div class="footer-right">
-			&copy; 2017 MiiStore. All Rights Reserved | Design by Victory Webstore
+			&copy; 2019 MiiStore. All Rights Reserved | Design by Victory Webstore
 		</div>
 		<div class="clearfix"></div>
 	</footer>
